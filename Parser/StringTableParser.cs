@@ -16,6 +16,14 @@ namespace Barbar.PEHandler.Parser
     {
       var result = new StringTable();
       DoLoad(result);
+      // todo remove
+      long position = parser.Position;
+      parser.Seek(result.Position, System.IO.SeekOrigin.Begin);
+      byte[] buffer = parser.ReadBytes(result.Length);
+      parser.Seek(position, System.IO.SeekOrigin.Begin);
+
+      
+
       if (result.Key.Length != 8)
       {
         throw new ParseException("Invalid StringTable szKey - eight hex digits expected.");
@@ -30,6 +38,11 @@ namespace Barbar.PEHandler.Parser
         versionString.Padding = parser.PadToFourBytes();
         versionString.Value = parser.ReadUnicodeString();
         result.Children.Add(versionString);
+        while ((parser.Position % 4) != 0)
+        {
+          parser.ReadUInt16();
+        }
+
       }
       return result;
     }

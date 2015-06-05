@@ -44,6 +44,7 @@
     <Compile Include="Parser\BaseFileInfoParser.cs" />
     <Compile Include="Parser\StringTableParser.cs" />
     <Compile Include="Parser\VarParser.cs" />
+    <Compile Include="PEUtility.cs" />
     <Compile Include="Resources\BaseFileInfo.cs" />
     <Compile Include="Resources\StringFileInfo.cs" />
     <Compile Include="Resources\FixedFileInfo.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="Resources\StringTable.cs" />
     <Compile Include="Resources\Var.cs" />
     <Compile Include="Resources\VarFileInfo.cs" />
+    <Compile Include="Resources\VarValue.cs" />
     <Compile Include="Resources\VersionString.cs" />
     <Compile Include="SectionTable.cs" />
     <Compile Include="Parser\SectionTableParser.cs" />

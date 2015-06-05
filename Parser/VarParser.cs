@@ -1,4 +1,5 @@
 ﻿using Barbar.PEHandler.Resources;
+using System.Collections.Generic;
 
 namespace Barbar.PEHandler.Parser
 {
@@ -19,7 +20,11 @@ namespace Barbar.PEHandler.Parser
       }
 
       result.Padding = parser.PadToFourBytes();
-      result.Value = parser.ReadInt32();
+      result.Value = new List<VarValue>();
+      for (var i = 0; i < result.ValueLength / 4; i++)
+      {
+        result.Value.Add(parser.ReadInt32());
+      }
       return result;
     }
   }

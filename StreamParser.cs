@@ -16,6 +16,10 @@ namespace Barbar.PEHandler
       {
         throw new ArgumentNullException("stream");
       }
+      if (!stream.CanRead || !stream.CanSeek)
+      {
+        throw new ArgumentException("Unsupported stream type.");
+      }
 
       m_Stream = stream;
     }
